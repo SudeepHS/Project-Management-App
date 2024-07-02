@@ -6,12 +6,7 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./db/connect");
 const cors = require("cors");
 
-app.use(
-    cors({
-        origin: "https://project-management-app-backend-6lw2.onrender.com",
-        credentials: true,
-    })
-);
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
 

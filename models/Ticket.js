@@ -19,7 +19,7 @@ const TicketSchema = new mongoose.Schema(
         assignedTo: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
-            default: "None",
+            default: null,
         },
         assignedToName: {
             type: "String",

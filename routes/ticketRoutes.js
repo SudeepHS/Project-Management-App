@@ -8,13 +8,14 @@ const {
     deleteTicket,
     getSingleTicket,
 } = require("../controllers/ticketController");
+const { authenticateUser } = require("../middleware/authentication");
 
 router.route("/project/:projectId").get(getTickets);
 router
     .route("/:ticketId")
-    .get(getSingleTicket)
-    .patch(updateTicket)
-    .delete(deleteTicket);
-router.route("/").post(createTicket);
+    .get(authenticateUser, getSingleTicket)
+    .patch(authenticateUser, updateTicket)
+    .delete(authenticateUser, deleteTicket);
+router.route("/").post(authenticateUser, createTicket);
 
 module.exports = router;

@@ -8,7 +8,7 @@ const cors = require("cors");
 
 app.use(
     cors({
-        origin: "https://darling-granita-d4193b.netlify.app/account",
+        origin: true,
         credentials: true,
         exposedHeaders: ["Set-Cookie"],
     })

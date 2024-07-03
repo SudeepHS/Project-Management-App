@@ -6,7 +6,13 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./db/connect");
 const cors = require("cors");
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(
+    cors({
+        origin: "https://darling-granita-d4193b.netlify.app/account",
+        credentials: true,
+        exposedHeaders: ["Set-Cookie"],
+    })
+);
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
 
